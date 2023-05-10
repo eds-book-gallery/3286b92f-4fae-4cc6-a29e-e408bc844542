@@ -113,7 +113,9 @@ def plot_cross_sections(
     ax.set_xlabel(lat_label)
     ax.set_ylabel(depth_label)
     ax.set_xticks(lat_arange)
-    ax.set_xticklabels(np.round(da_y.values[np.array(lat_arange).astype(int)], decimals=-1).astype(int)) 
+    ax.set_xticklabels(
+        np.round(da_y.values[np.array(lat_arange).astype(int)], decimals=-1).astype(int)
+    ) 
     ax.set_yticks(depth_arange)
     ax.set_yticklabels(da_z.values[np.array(depth_arange)].astype(int))
     plt.text(-0.055, 0.86, lab, transform=fig.transFigure)

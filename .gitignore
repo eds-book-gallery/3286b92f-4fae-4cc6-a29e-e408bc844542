@@ -6,6 +6,11 @@ conf/credentials.json
 # C extensions
 *.so
 
+# Data 
+*.nc
+*.npy
+*.txt
+
 # Distribution / packaging
 .Python
 build/

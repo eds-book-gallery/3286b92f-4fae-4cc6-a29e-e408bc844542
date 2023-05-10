@@ -6,7 +6,7 @@
 
 print('import packages')
 import sys
-sys.path.append('../Tools')
+sys.path.append('../../general/')
 import Model_Plotting as rfplt
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,10 +21,8 @@ level = point[0]
 y_coord = point[1]
 x_coord = point[2]
 
-DIR  = '/data/hpcdata/users/racfur/MITgcm/verification/MundaySectorConfig_2degree/runs/100yrs/mnc_test_0002/'
-MITGCM_filename=DIR+'cat_tave.nc'
 
-rootdir = '../../../MITGCM_Analysis_Sector/'
+rootdir = '../../../data/'
 
 variable_names = ('Av_ADVr_TH', 'Av_ADVy_TH', 'Av_ADVx_TH', 'Av_DFrE_TH', 'Av_DFrI_TH', 'Av_DFyE_TH', 'Av_DFxE_TH')
 
@@ -62,7 +60,7 @@ plt.rc('ytick', labelsize='x-small')
 #------------------------
 print('reading in data')
 #------------------------
-data_filename=rootdir+'AveragedMITgcmData.nc'
+data_filename=rootdir+'avera_trend.nc'
 ds = xr.open_dataset(data_filename)
 
 for variable in variable_names: 
@@ -75,5 +73,5 @@ for variable in variable_names:
                                             ds['X'].values, ds['Y'].values, ds['Z'].values,
                                             text=text[variable], title=None, min_value=None, max_value=None, diff=False,
                                             cmap='Reds', cbar_label=cbar_label, Sci=True)
-   plt.savefig(rootdir+'PLOTS/'+filenames[variable]+'.eps', bbox_inches = 'tight', pad_inches = 0.1, format='eps')
+   plt.savefig('../../../outputs/figures/'+filenames[variable]+'.eps', bbox_inches = 'tight', pad_inches = 0.1, format='eps')
  
