@@ -2,9 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+conf/credentials.json
 # C extensions
 *.so
+
+# Data 
+*.nc
+*.npy
+*.txt
 
 # Distribution / packaging
 .Python

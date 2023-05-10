@@ -276,26 +276,3 @@ del norm_lr_predicted_tr
 del norm_lr_predicted_val
 gc.collect()
 
-##------------------
-## plot histograms:
-##------------------
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_tr, 100) 
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_train_predictions.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_val, 100)
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_val_predictions.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_tr-denorm_outputs_tr, 100)
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_train_errors.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_val-denorm_outputs_val, 100) 
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_val_errors.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-##----------------------------------------------
-## Plot scatter plots of errors against outputs
-##----------------------------------------------
-#am.plot_scatter(model_name, denorm_outputs_tr, denorm_lr_predicted_tr-denorm_outputs_tr, name='train', xlabel='DeltaT', ylabel='Errors', exp_cor=False)
-#am.plot_scatter(model_name, denorm_outputs_val, denorm_lr_predicted_val-denorm_outputs_val, name='val', xlabel='DeltaT', ylabel='Errors', exp_cor=False)
-#
-
-
