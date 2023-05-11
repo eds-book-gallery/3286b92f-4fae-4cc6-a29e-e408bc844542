@@ -10,7 +10,7 @@ import numpy as np
 import xarray as xr
 from sklearn.preprocessing import PolynomialFeatures
 from skimage.util import view_as_windows
-import Model_Plotting as rfplt
+import plotting as rfplt
 import os
 import matplotlib.pyplot as plt
 import scipy.stats as stats

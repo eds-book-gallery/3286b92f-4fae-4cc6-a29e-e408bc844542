@@ -25,30 +25,62 @@ plt.rc('ytick', labelsize='x-small')
 # Plotting spatial depth fields 
 #-------------------------------
 
-def plot_depth_ax(fig, ax, field, level, lon_labels, lat_labels, depth_labels, text=None, min_value=None, max_value=None, cmap=None):
+def plot_parms():
+    plt.rcParams.update({'font.size': 10})
+    plt.rc('font', family='sans serif')
+    plt.rc('xtick', labelsize='x-small')
+    plt.rc('ytick', labelsize='x-small')
+    
+    return plt
+
+
+def plot_depth_ax(
+    fig,
+    ax,
+    field,
+    level,
+    lon_labels,
+    lat_labels,
+    depth_labels, 
+    text=None, 
+    min_value=None, 
+    max_value=None, 
+    cmap=None
+):
     # Assumes field is (z, y, x)
 
     if not min_value:
-       min_value = np.nanmin(field[level,:,:])  # Lowest value
+        min_value = np.nanmin(field[level,:,:])  # Lowest value
+        
     if not max_value:
-       max_value = np.nanmax(field[level,:,:])   # Highest value
+        max_value = np.nanmax(field[level,:,:])   # Highest value
 
-    im = ax.pcolormesh(field[level,:,:], vmin=min_value, vmax=max_value, cmap=cmap, edgecolors='face', snap=True)
+    im = ax.pcolormesh(
+        field[level,:,:],
+        vmin=min_value,
+        vmax=max_value,
+        cmap=cmap,
+        edgecolors='face',
+        snap=True
+    )
     ax.set_xlabel('Longitude ('+u'\xb0'+' E)')
     ax.set_ylabel('Latitude ('+u'\xb0'+' N)')
    
     # Give axis ticks in lat/lon/depth
     lon_arange = [0, 4.5, 9.5]
     ax.set_xticks(lon_arange)
-    ax.set_xticklabels(np.round(lon_labels[np.array(lon_arange).astype(int)], decimals=-1).astype(int)) 
+    ax.set_xticklabels(
+        np.round(lon_labels[np.array(lon_arange).astype(int)],
+                 decimals=-1).astype(int)
+    ) 
     lat_arange = [0, 8.36, 15.5, 21.67, 27.25, 32.46, 37.5, 42.54, 47.75, 53.32, 59.5, 66.64, 75.5]
     ax.set_yticks(lat_arange)
     ax.set_yticklabels(np.round(lat_labels[np.array(lat_arange).astype(int)], decimals=-1).astype(int)) 
 
     if text:
-       plt.text(0.01, 0.94, text, transform=fig.transFigure)    
+        plt.text(0.01, 0.94, text, transform=fig.transFigure)    
  
-    return(ax, im)
+    return (ax, im)
 
 def plot_depth_fld(field, field_name, level, lon_labels, lat_labels, depth_labels, text=None, title=None, min_value=None, max_value=None,
                    diff=False, cmap=None, cbar_label=None, Sci=None): 

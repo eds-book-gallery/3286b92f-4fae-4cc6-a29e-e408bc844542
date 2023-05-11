@@ -1,5 +1,7 @@
 """
-Plots instantaneous fields from MITgcm dataset, for  various cross sections
+Plots instantaneous fields from 
+MITgcm dataset
+multiple cross sections
 """
 
 import sys
