@@ -1,18 +1,23 @@
 """
-Plots instantaneous fields from MITgcm dataset, for  various cross sections
+Plots instantaneous 
+fields from MITgcm dataset
+multiple cross sections
 """
 
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
+sys.path.append('../../')
+import src.general.plotting as rfplt
 
-sys.path.append('../src/general/')
-from constants import *
+from src.general.constants import *
 from netCDF4 import Dataset
 
 
-def load_data(path_data):
+def load_data(
+    path_data
+):
     """Read in netcdf file and get shape
     """
     
@@ -29,15 +34,6 @@ def load_data(path_data):
     return dam, da
 
 
-def set_plot_pars():
-    
-    plt.rcParams.update({'font.size': 10})
-    plt.rc('font', family='sans serif')
-    plt.rc('xtick', labelsize='x-small')
-    
-    return plt
-
-
 def plot_depth_fields(
     select,
     min_value, 
@@ -52,7 +48,7 @@ def plot_depth_fields(
     lab,
     cmap
 ):
-    plt = set_plot_pars()
+    plt = rfplt.plot_parms()
     fig = plt.figure(figsize=(2.5, 4.5), dpi=300)
     ax = fig.add_subplot(1, 1, 1)
     im = ax.pcolormesh(
@@ -98,7 +94,7 @@ def plot_cross_sections(
     lab,
     cmap
 ):
-    plt = set_plot_pars()
+    plt = rfplt.plot_parms()
     fig = plt.figure(figsize=(3.6, 2.0), dpi=300)
     ax = fig.add_subplot(1, 1, 1)
     im = ax.pcolormesh(
