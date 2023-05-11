@@ -9,10 +9,10 @@
 # Import neccessary packages
 #----------------------------
 import sys
-sys.path.append('../Tools')
+sys.path.append('../../src/general/')
 import CreateDataName as cn
 import AssessModel as am
-import Model_Plotting as rfplt
+import plotting as rfplt
 import ReadRoutines as rr
 
 import numpy as np
@@ -40,10 +40,10 @@ model_prefix = 'alpha.001_'
 
 TrainModel = True  
 
-DIR = '/data/hpcdata/users/racfur/MITgcm/verification/MundaySectorConfig_2degree/runs/100yrs/'
-MITGCM_filename=DIR+'mnc_test_0002/cat_tave.nc'
+DIR = '../../data/raw/'    
+MITGCM_filename=DIR+'cat_tave.nc'
 density_file = DIR+'DensityData.npy'
-clim_filename = DIR+'mnc_test_0002/ncra_cat_tave.nc'
+clim_filename = DIR+'ncra_cat_tave.nc'
 
 print('run_vars; '+str(run_vars))
 print('model_prefix ; '+str(model_prefix))
@@ -55,7 +55,7 @@ data_name = data_prefix + cn.create_dataname(run_vars)
 
 model_name = model_prefix+data_name
 
-plot_dir = '../../../lr_Outputs/PLOTS/'+model_name
+plot_dir = '../../outputs/figures/'+model_name
 if not os.path.isdir(plot_dir):
    os.system("mkdir %s" % (plot_dir))
 
@@ -87,7 +87,7 @@ print(norm_outputs_val.shape)
 # Run ridge regression tuning alpha through cross val
 #-------------------------------------------------------------
 print('setting up model')
-pkl_filename = '../../../lr_Outputs/MODELS/'+model_name+'_pickle.pkl'
+pkl_filename = '../../outputs/models/'+model_name+'_pickle.pkl'
 if TrainModel:
     print('training model')
     
@@ -104,7 +104,7 @@ if TrainModel:
     lr.get_params()
 
     # Write info on Alpha in file    
-    info_filename = '../../../lr_Outputs/MODELS/'+model_name+'_info.txt'
+    info_filename = '../../outputs/models/'+model_name+'_info.txt'
     info_file=open(info_filename,"w")
     info_file.write("Best parameters set found on development set:\n")
     info_file.write('\n')
@@ -119,7 +119,7 @@ if TrainModel:
     info_file.write('')
 
     # Store coeffs in an npz file
-    coef_filename = '../../../lr_Outputs/MODELS/'+model_name+'_coefs.npz'
+    coef_filename = '../../outputs/models/'+model_name+'_coefs.npz'
     np.savez( coef_filename, np.asarray(lr.best_estimator_.intercept_), np.asarray(lr.best_estimator_.coef_) )
 
     # pickle it
@@ -142,7 +142,7 @@ norm_lr_predicted_val = lr.predict(norm_inputs_val).reshape(-1,1).astype('float6
 # De-normalise the outputs and predictions
 
 # Read in mean and std
-mean_std_file = '../../../INPUT_OUTPUT_ARRAYS/SinglePoint_'+data_name+'_MeanStd.npz'
+mean_std_file = '../../outputs/models/SinglePoint_'+data_name+'_MeanStd.npz'
 zip_mean_std_file = mean_std_file+'.gz' 
 if os.path.isfile(mean_std_file):
    mean_std_data = np.load(mean_std_file)
@@ -275,27 +275,4 @@ del norm_inputs_val
 del norm_lr_predicted_tr
 del norm_lr_predicted_val
 gc.collect()
-
-##------------------
-## plot histograms:
-##------------------
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_tr, 100) 
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_train_predictions.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_val, 100)
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_val_predictions.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_tr-denorm_outputs_tr, 100)
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_train_errors.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-#fig = rfplt.Plot_Histogram(denorm_lr_predicted_val-denorm_outputs_val, 100) 
-#plt.savefig(plot_dir+'/'+model_name+'_histogram_val_errors.png', bbox_inches = 'tight', pad_inches = 0.1)
-#
-##----------------------------------------------
-## Plot scatter plots of errors against outputs
-##----------------------------------------------
-#am.plot_scatter(model_name, denorm_outputs_tr, denorm_lr_predicted_tr-denorm_outputs_tr, name='train', xlabel='DeltaT', ylabel='Errors', exp_cor=False)
-#am.plot_scatter(model_name, denorm_outputs_val, denorm_lr_predicted_val-denorm_outputs_val, name='val', xlabel='DeltaT', ylabel='Errors', exp_cor=False)
-#
-
 
