@@ -11,15 +11,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import skew
 
-#------------------------
-# Set plotting variables
-#------------------------
-
-plt.rcParams.update({'font.size': 10})
-plt.rc('font', family='sans serif')
-plt.rc('xtick', labelsize='x-small')
-plt.rc('ytick', labelsize='x-small')
-
 
 #-------------------------------
 # Plotting spatial depth fields 

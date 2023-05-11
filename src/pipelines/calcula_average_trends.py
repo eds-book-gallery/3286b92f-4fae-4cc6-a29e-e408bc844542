@@ -69,7 +69,12 @@ def get_mean(
     return mean
 
     
-def create_variables(dat, nc, start, skip):
+def create_variables(
+    dat,
+    nc,
+    start,
+    skip
+):
     """Create variables and get averages"""
     
     nc_T = nc.createVariable('T', 'i4', 'T')

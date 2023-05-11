@@ -15,7 +15,9 @@ from src.general.constants import *
 from itertools import zip_longest
 
 
-def load_aveg_trend(data_interm_path):
+def load_aveg_trend(
+    data_interm_path
+):
     """Load average trends"""
     
     filename=f"{data_interm_path}avera_trend.nc"
@@ -24,7 +26,15 @@ def load_aveg_trend(data_interm_path):
     return dat
 
 
-def graph_loops(plt, dat, figs_path, text_avgs, vars_avgs, x_coord, label_avgs):
+def graph_loops(
+    plt, 
+    dat, 
+    figs_path, 
+    text_avgs, 
+    vars_avgs, 
+    x_coord, 
+    label_avgs
+):
     for var in vars_avgs: 
         avg = dat[var].values
         fig, ax, im = rfplt.plot_xconst_crss_sec(
