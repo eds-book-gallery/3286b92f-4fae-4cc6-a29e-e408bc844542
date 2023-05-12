@@ -177,6 +177,54 @@ def GetInputs(
     return inputs
 
 
+def train_test_split():
+    """
+
+    """
+    pass
+
+
+def read_mitgcm(MITGCM_filename, run_vars):
+    """
+
+    """
+    # Read in the data
+    chunk_dims = {"T": 18000/10, "X": int(11/2), "Y": 78/2, "Z": 42/2}
+    ds = xr.open_dataset(MITGCM_filename, chunks=chunk_dims)
+
+    # Get number of cells in the xyz directions
+    x_size = ds.dims['X']
+    y_size = ds.dims['Y']
+    z_size = ds.dims['Z']
+
+    # Set the region to predict for
+    # We want to exclude boundary points, and near to boundary points
+
+    # Split into three regions:
+    """
+    Region1:
+
+    Main part of the domain, ignoring one point above/below land/domain
+    edge at north and south borders, and ignoring one point down entire
+    West boundary, and two points down entire East boundary (i.e. acting
+    as though land split carries on all the way to the bottom of the domain).
+
+    Set lower and upper boundaries of the FORECAST region - the window is
+    extended in getInputs to include the surrounding input region (i.e.
+    row x=0, which is used as inputs for x=1, but not forecast for as it
+    is next to land, so x_lw is 1, the first point thats forecastable).
+    """
+    x_lw_1 = 1
+    x_up_1 = x_size - 2
+    y_lw_1 = 1
+    y_up_1 = y_size - 3  # one higher than the point we want to forecast for, # i.e. first point we're not forecasting
+    z_lw_1 = 1
+    z_up_1 = z_size - 1  # one higher than the point we want to forecast for, i.e. first point we're not forecasting
+
+    #
+    da_T2 = np.concatenate((ds.Ttave[:, :, :, -1:], ds.Ttave[:, :, :, :-1]), axis=3)
+
+
 def ReadMITGCM(
     MITGCM_filename,
     clim_filename,
@@ -223,7 +271,9 @@ def ReadMITGCM(
     # ------------------
     # Read in the data
     # ------------------
-    ds = xr.open_dataset(MITGCM_filename)
+    # Read in chunks based on their full dimensions
+    chunk_dims = {"T": 18000/10, "X": int(11/2), "Y": 78/2, "Z": 42/2}
+    ds = xr.open_dataset(MITGCM_filename, chunks=chunk_dims)
 
     da_T = ds["Ttave"].values
     da_S = ds["Stave"].values
