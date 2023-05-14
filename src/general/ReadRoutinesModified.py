@@ -957,7 +957,7 @@ def ReadMITGCM(
             0, z_lw_1:z_up_1, y_lw_1:y_up_1, x_lw_1:x_up_1
         ].reshape((-1, 1))
 
-        if t*200 == trainval_split:
+        if t == len(trainval_range):
             inputs_val = inputs_1
             outputs_val_DelT = outputs_1_DelT
             outputs_val_Temp = outputs_1_Temp
@@ -1394,7 +1394,7 @@ def ReadMITGCM(
         outputs_1_DelT = outputs_1_DelT.reshape((-1, 1))
         outputs_1_Temp = outputs_1_Temp.reshape((-1, 1))
 
-        if t == valtest_split:
+        if t == len(trainval_range) + len(valtest_range):
             inputs_te = inputs_1
             outputs_te_DelT = outputs_1_DelT
             outputs_te_Temp = outputs_1_Temp
