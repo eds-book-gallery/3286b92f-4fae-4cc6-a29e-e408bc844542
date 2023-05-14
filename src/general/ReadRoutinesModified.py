@@ -18,6 +18,8 @@ import os
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 
+from itertools import chain
+
 
 def GetInputs(
     run_vars,
@@ -177,13 +179,6 @@ def GetInputs(
     return inputs
 
 
-def train_test_split():
-    """
-
-    """
-    pass
-
-
 def read_mitgcm(MITGCM_filename, run_vars):
     """
 
@@ -237,6 +232,9 @@ def ReadMITGCM(
     plot_histograms=False,
 ):
     """
+    TODO: Change sampling from every 200 to 200 and 201.
+    Modify the for loops to fit this new sampling
+
     Routine to read in MITGCM data into input and output arrays,
     split into train, val and test portions of code, and normalise.
     The arrays are saved, and also passed back on return.
@@ -271,9 +269,18 @@ def ReadMITGCM(
     # ------------------
     # Read in the data
     # ------------------
-    # Read in chunks based on their full dimensions
-    chunk_dims = {"T": 18000/10, "X": int(11/2), "Y": 78/2, "Z": 42/2}
-    ds = xr.open_dataset(MITGCM_filename, chunks=chunk_dims)
+    # Define train-validation-test ranges
+    trainval_range = range(start, trainval_split, subsample_rate)
+    valtest_range = range(trainval_split, valtest_split, subsample_rate)
+    test_range = range(valtest_split, data_end_index, subsample_rate)
+    full_range = chain(trainval_range, valtest_range, test_range)
+
+    # List of present and next day times of the train-validation-test split
+    sample_times = [(t, t + 1) for t in full_range]
+
+    # Read Dataset and subsample
+    ds = xr.open_dataset(MITGCM_filename)
+    ds = ds.isel(T=np.array(sample_times).flatten())
 
     da_T = ds["Ttave"].values
     da_S = ds["Stave"].values
@@ -296,9 +303,9 @@ def ReadMITGCM(
     ds_clim = xr.open_dataset(clim_filename)
     da_clim_T = ds_clim["Ttave"].values
 
-    x_size = da_T.shape[3]
-    y_size = da_T.shape[2]
-    z_size = da_T.shape[1]
+    x_size = ds.dims["X"]
+    y_size = ds.dims["Y"]
+    z_size = ds.dims["Z"]
 
     # Set region to predict for - we want to exclude boundary points, and near to boundary points
     # Split into three regions:
@@ -377,8 +384,8 @@ def ReadMITGCM(
     z_lw_3 = 1
     z_up_3 = 31  # one higher than the point we want to forecast for, i.e. first point we're not forecasting
 
-    for t in range(start, trainval_split, subsample_rate):
-        print(t)
+    for t in range(len(trainval_range)):
+        print(t*200)
         # ---------#
         # Region1 #
         # ---------#
@@ -814,7 +821,9 @@ def ReadMITGCM(
         orig_tr_Temp = np.concatenate((orig_tr_Temp, orig_3_Temp), axis=0)
         clim_tr_Temp = np.concatenate((clim_tr_Temp, clim_3_Temp), axis=0)
 
-    for t in range(trainval_split, valtest_split, subsample_rate):
+    for t in range(len(trainval_range),
+                   len(trainval_range) + len(valtest_range)):
+        print(t*200)
         # ---------#
         # Region1 #
         # ---------#
@@ -948,7 +957,7 @@ def ReadMITGCM(
             0, z_lw_1:z_up_1, y_lw_1:y_up_1, x_lw_1:x_up_1
         ].reshape((-1, 1))
 
-        if t == trainval_split:
+        if t*200 == trainval_split:
             inputs_val = inputs_1
             outputs_val_DelT = outputs_1_DelT
             outputs_val_Temp = outputs_1_Temp
@@ -1255,7 +1264,9 @@ def ReadMITGCM(
         orig_val_Temp = np.concatenate((orig_val_Temp, orig_3_Temp), axis=0)
         clim_val_Temp = np.concatenate((clim_val_Temp, clim_3_Temp), axis=0)
 
-    for t in range(valtest_split, data_end_index, subsample_rate):
+    for t in range(len(trainval_range) + len(valtest_range),
+                   len(trainval_range) + len(valtest_range) + len(test_range)):
+        print(t*200)
         # ---------#
         # Region1 #
         # ---------#
