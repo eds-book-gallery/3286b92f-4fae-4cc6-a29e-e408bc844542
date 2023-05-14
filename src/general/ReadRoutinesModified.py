@@ -250,7 +250,7 @@ def ReadMITGCM(
     """
 
     info_filename = (
-        "../../../INPUT_OUTPUT_ARRAYS/SinglePoint_" + data_name + "_info.txt"
+        "../outputs/SinglePoint_" + data_name + "_info.txt"
     )
     info_file = open(info_filename, "w")
 
