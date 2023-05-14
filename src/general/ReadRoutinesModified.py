@@ -250,7 +250,7 @@ def ReadMITGCM(
     """
 
     info_filename = (
-        "../outputs/SinglePoint_" + data_name + "_info.txt"
+        "../outputs/logs/SinglePoint_" + data_name + "_info.txt"
     )
     info_file = open(info_filename, "w")
 
@@ -1931,7 +1931,7 @@ def ReadMITGCM(
 
     ## Save mean and std to file, so can be used to un-normalise when using model to predict
     mean_std_file = (
-        "../../../INPUT_OUTPUT_ARRAYS/SinglePoint_"
+        "../outputs/logs/SinglePoint_"
         + data_name
         + "_MeanStd.npz"
     )
