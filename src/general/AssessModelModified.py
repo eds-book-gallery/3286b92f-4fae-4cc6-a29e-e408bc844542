@@ -153,7 +153,7 @@ def plot_scatter(
         ax1.plot([bottom, top], [0, 0], "k--", lw=1)
 
     plt.savefig(
-        outdir
+        "../outputs/figures/"
         + "PLOTS/"
         + model_name
         + "/"
