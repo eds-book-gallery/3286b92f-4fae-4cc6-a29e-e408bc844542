@@ -51,7 +51,7 @@ def get_stats(
     # Print to file
     outdir = "../outputs/logs/"
 
-    stats_filename = outdir + "STATS/" + exp_name + "_" + name + ".txt"
+    stats_filename = outdir + exp_name + "_" + name + ".txt"
     stats_file = open(stats_filename, "w")
 
     stats_file.write("\n")
