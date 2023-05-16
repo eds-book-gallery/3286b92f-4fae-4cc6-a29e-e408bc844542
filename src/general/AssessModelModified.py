@@ -103,7 +103,7 @@ def plot_scatter(
     bottom=None,
     text=None,
 ):
-    outdir = "../../../lr_Outputs/"
+    outdir = "../outputs/figures/"
 
     data1 = data1.reshape(-1)
     data2 = data2.reshape(-1)
@@ -153,8 +153,7 @@ def plot_scatter(
         ax1.plot([bottom, top], [0, 0], "k--", lw=1)
 
     plt.savefig(
-        "../outputs/figures/"
-        + "PLOTS/"
+        outdir
         + model_name
         + "/"
         + model_name
