@@ -8,6 +8,8 @@ start=500
 skip=14
 
 # Plots raw data: depth, cross-sections, colorbars
+sd_min_value = 0
+sd_max_value = 0.00025
 time = 2500
 point = [2, 8, 6]
 level = point[0]
@@ -32,11 +34,14 @@ lat_arange = [
 lon_arange = [0, 4.5, 9.5]
 diff_min_value = -.001
 diff_max_value = .001
+
+
 lat_label = 'Latitude ('+u'\xb0'+' N)'
 lon_label = 'Longitude ('+u'\xb0'+' E)'
 depth_label = 'Depth (m)'
 cbar_label = 'Temperature ('+u'\xb0'+'C)'
 cbar_diff_label = 'Temperature Change ('+u'\xb0'+'C)'
+cbar_sd_label = 'Temperature Standarad Deviation ('+u'\xb0'+'C)'
 
 # Plots average trends
 
