@@ -1,6 +1,6 @@
 # Paths
-figs_path = '../../outputs/figures/'
-data_raw_path = '../../data/raw/'    
+figs_path = '../outputs/figures/'
+data_raw_path = '../data/raw/cat_tave.nc'    
 data_interm_path = '../../data/interim/' 
 
 # Averages
