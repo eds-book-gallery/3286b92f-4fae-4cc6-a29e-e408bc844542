@@ -10,9 +10,10 @@ conf/credentials.json
 *.nc
 *.npy
 *.txt
-
+*.png
 data/*
 outputs/*
+outputs/figures/*
 
 
 # Distribution / packaging

@@ -14,7 +14,6 @@ import CreateDataName as cn
 import AssessModel as am
 import plotting as rfplt
 import ReadRoutines as rr
-
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle

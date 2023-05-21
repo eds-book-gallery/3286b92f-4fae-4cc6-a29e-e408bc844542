@@ -5,7 +5,7 @@
 # and then plotted.
 
 import sys
-sys.path.append('../Tools')
+sys.path.append('../general/')
 import CreateDataName as cn
 import numpy as np
 import matplotlib
@@ -13,17 +13,22 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import os
 
+
 #----------------------------
 # Set variables for this run
 #----------------------------
 plot_log = False
 
-run_vars={'dimension':3, 'lat':True , 'lon':True , 'dep':True , 'current':True , 'bolus_vel':True , 'sal':True , 'eta':True , 'density':True , 'poly_degree':2, 'StepSize':10}
+#run_vars={'dimension':3, 'lat':True , 'lon':True , 'dep':True , 'current':True , 'bolus_vel':True , #'sal':True , 'eta':True , 'density':True , 'poly_degree':2, 'StepSize':10, 'predict'='DelT'}
+
+run_vars = {'dimension':3, 'lat':True , 'lon':True , 'dep':True , 'current':True , 'bolus_vel':True , 'sal':True , 'eta':True , 'density':True , 'poly_degree':2, 'StepSize':1, 'predict':'DelT'}
 
 data_prefix=''
 model_prefix = 'alpha.001_'
 exp_prefix = ''
 
+mod_path='../outputs/models/'
+figs_path='../outputs/figures/'
 #-----------------------------------------------
 # Calc other variables - these shouldn't change
 #-----------------------------------------------
@@ -31,9 +36,9 @@ data_name = data_prefix+cn.create_dataname(run_vars)
 model_name = model_prefix+data_name
 exp_name = exp_prefix+model_name
 
-rootdir = '../../../lr_Outputs/'
-
-plotdir = rootdir+'PLOTS/'+model_name+'/COEFFS'
+plotdir = figs_path+model_name+'/COEFFS'
+if not os.path.isdir(figs_path+model_name):
+   os.system("mkdir %s" % (figs_path+model_name))
 if not os.path.isdir(plotdir):
    os.system("mkdir %s" % (plotdir))
 
@@ -89,51 +94,51 @@ if run_vars['dimension'] == 2:
         subgroup_grid_lines_bold.append([0,9])
         no_inputs = no_inputs + temp_no_inputs
         no_variables = no_variables + 1
-   if run_vars['bolus_vel']:
-      tick_labels.append('Zonal Bolus Velocities')
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
-      tick_labels.append('Meridional Bolus Velocities')
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
-      tick_labels.append('Vertical Bolus Velocities')
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
-   if run_vars['density']:
-      tick_labels.append('Density')   
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
+    if run_vars['bolus_vel']:
+        tick_labels.append('Zonal Bolus Velocities')
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
+        tick_labels.append('Meridional Bolus Velocities')
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
+        tick_labels.append('Vertical Bolus Velocities')
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
+    if run_vars['density']:
+        tick_labels.append('Density')   
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
     
 elif run_vars['dimension'] == 3:
-   tick_labels.append('Temperature')   
-   temp_no_inputs = 27
-   tick_locations.append(temp_no_inputs/2)
-   grid_lines.append(temp_no_inputs)
-   subgroup_grid_lines_light.append([0,3,6,9,12,15,18,21,24,27])
-   subgroup_grid_lines_bold.append([0,9,18,27])
-   no_inputs = no_inputs + temp_no_inputs
-   no_variables = no_variables + 1
-   if run_vars['sal']:
+    tick_labels.append('Temperature')   
+    temp_no_inputs = 27
+    tick_locations.append(temp_no_inputs/2)
+    grid_lines.append(temp_no_inputs)
+    subgroup_grid_lines_light.append([0,3,6,9,12,15,18,21,24,27])
+    subgroup_grid_lines_bold.append([0,9,18,27])
+    no_inputs = no_inputs + temp_no_inputs
+    no_variables = no_variables + 1
+    if run_vars['sal']:
       tick_labels.append('Salinity')   
       temp_no_inputs = 27
       tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
@@ -142,7 +147,7 @@ elif run_vars['dimension'] == 3:
       subgroup_grid_lines_bold.append([0,9,18,27])
       no_inputs = no_inputs + temp_no_inputs
       no_variables = no_variables + 1
-   if run_vars['current']:
+    if run_vars['current']:
       tick_labels.append('U Current')   
       temp_no_inputs = 27
       tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
@@ -159,7 +164,7 @@ elif run_vars['dimension'] == 3:
       subgroup_grid_lines_bold.append([0,9,18,27])
       no_inputs = no_inputs + temp_no_inputs
       no_variables = no_variables + 1
-   if run_vars['bolus_vel']:
+    if run_vars['bolus_vel']:
       tick_labels.append('U Bolus Velocities')
       temp_no_inputs = 27
       tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
@@ -184,7 +189,7 @@ elif run_vars['dimension'] == 3:
       subgroup_grid_lines_bold.append([0,9,18,27])
       no_inputs = no_inputs + temp_no_inputs
       no_variables = no_variables + 1
-   if run_vars['density']:
+    if run_vars['density']:
       tick_labels.append('Density')   
       temp_no_inputs = 27
       tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
@@ -228,7 +233,7 @@ if run_vars['lat'] or run_vars['lon'] or run_vars['dep']:
 # Read in data array and reshape
 #--------------------------------
 
-coef_filename = rootdir+'MODELS/'+exp_name+'_coefs.npz'
+coef_filename = mod_path+exp_name+'_coefs.npz'
 print(coef_filename)
 coeff_data = np.load(coef_filename)
 intercept  = coeff_data['arr_0']
@@ -308,8 +313,8 @@ if run_vars['poly_degree'] is 1:
    ax.invert_yaxis()
    
    fig.tight_layout()
-   plt.savefig(plotdir+'/'+exp_name+'_coeffs.png', bbox_inches = 'tight', pad_inches = 0.1)
-   
+   #plt.savefig(plotdir+'/'+exp_name+'_coeffs.png', bbox_inches = 'tight', pad_inches = 0.1)
+   plt.show()
    #---------------------------------------
    # Do Polynomial version... more complex
    #---------------------------------------
@@ -492,4 +497,5 @@ elif run_vars['poly_degree'] is 2:
          
          fig.tight_layout()
          plt.savefig(plotdir+'/'+exp_name+'_'+ylabels[j]+'_'+xlabels[i]+'_coeffs.eps', bbox_inches = 'tight', pad_inches = 0.1, format='eps')
-         plt.close()
+         #plt.close()
+         plt.show()

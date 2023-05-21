@@ -21,10 +21,10 @@ for f in *.gz
     rm "$f"
 done
 
-mv MODELS/* ../outputs/models/ && rm -rf MODELS
-mv ITERATED_PREDICTION_ARRAYS/* ../outputs/predictions/ && rm -rf ITERATED_PREDICTION_ARRAYS
+mv MODELS/* models/ && rm -rf MODELS
+mv ITERATED_PREDICTION_ARRAYS/* predictions/ && rm -rf ITERATED_PREDICTION_ARRAYS
 
-mkdir ../outputs/interim
-mv trunc_io_arrays/* ../outputs/interim/ && rm trunc_io_arrays
+mkdir ../data/interim
+mv trunc_io_arrays/* ../data/interim/ && rm trunc_io_arrays
 
 rm md5sums.txt
