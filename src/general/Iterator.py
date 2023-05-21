@@ -2,18 +2,33 @@
 # Defines iterator used to make predictions for MITGCM sector config domain,
 
 import sys
-sys.path.append('../Tools')
+sys.path.append('../src/general')
 import ReadRoutines as rr
 import numpy as np
+import constants
 
+from constants import *
 #-----------------
 # Define iterator
 #-----------------
 
-def iterator(data_name, run_vars, model, num_steps, ds, density, init=None, start=None, method='AB1', outs=None):
+def iterator(
+    data_name,
+    run_vars,
+    model,
+    num_steps,
+    ds, 
+    density, 
+    init=None, 
+    start=None, 
+    method='AB1', 
+    outs=None,
+    sd_path=pred_path
+    
+):
 
     if start is None:
-       start = 0
+        start = 0
 
     da_T =      ds['Ttave'][start:start+num_steps+1,:,:,:].values
     da_S =      ds['Stave'][start:start+num_steps+1,:,:,:].values
@@ -49,7 +64,7 @@ def iterator(data_name, run_vars, model, num_steps, ds, density, init=None, star
         predictions[0,:,:,:] = init
    
     #Read in mean and std to normalise inputs
-    mean_std_file = '../../../INPUT_OUTPUT_ARRAYS/SinglePoint_'+data_name+'_MeanStd.npz'
+    mean_std_file = f"{sd_path}SinglePoint_{data_name}_MeanStd.npz"
     mean_std_data = np.load(mean_std_file)
     input_mean  = mean_std_data['arr_0']
     input_std   = mean_std_data['arr_1']

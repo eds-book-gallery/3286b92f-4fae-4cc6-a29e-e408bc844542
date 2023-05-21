@@ -7,6 +7,7 @@ import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 import sklearn.metrics as metrics
+from constants import *
 
 # Set Plotting variables
 plt.rcParams.update({'font.size': 10})
@@ -68,9 +69,9 @@ def get_stats(exp_name, name1, truth1, exp1, pers1=None, name2=None, truth2=None
 
  
 # Make scatter plot of predictions against truth 
-def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None, exp_cor=True, top=None, bottom=None, text=None):
+def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None, exp_cor=True, top=None, bottom=None, text=None,save=True):
  
-   outdir = '../../../lr_Outputs/'
+   outdir = figs_path
 
    data1=data1.reshape(-1)
    data2=data2.reshape(-1)
@@ -115,8 +116,9 @@ def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None
    else:  # Assume we expect points to fit on 0 line, i.e. plotting errors against something
       ax1.plot([bottom, top], [0, 0], 'k--', lw=1)
    
-   plt.savefig(outdir+'PLOTS/'+model_name+'/'+model_name+'_scatter_'+xlabel_filename+'Vs'+ylabel_filename+'_'+name+'.png',
+   if save==True:    
+        plt.savefig(outdir+'PLOTS/'+model_name+'/'+model_name+'_scatter_'+xlabel_filename+'Vs'+ylabel_filename+'_'+name+'.png',
                bbox_inches = 'tight', pad_inches = 0.1) #  Leave as png, far too large filesize if eps!
-   plt.close()
- 
-   return()
+
+   plt.show()
+   #return()

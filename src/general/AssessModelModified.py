@@ -1,4 +1,5 @@
 # Script written by Rachel Furner
+# Later modified for the Climate Informatics Reproducibility Challenge
 # Contains functions to assess data-driven models:
 #     stats: function to create stats comparing two models and output these to a file
 #     plotting: function to create plots comparing truth to predictions
