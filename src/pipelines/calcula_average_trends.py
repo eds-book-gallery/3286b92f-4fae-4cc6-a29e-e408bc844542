@@ -18,8 +18,7 @@ def read_mitgcm_trends(data_raw_path):
     Read in netcdf file for shape and variables
     """
     
-    filename =f"{data_raw_path}cat_tave.nc"
-    dat = xr.open_dataset(filename)
+    dat = xr.open_dataset(f"{data_raw_path}cat_tave.nc")
     
     return dat
 

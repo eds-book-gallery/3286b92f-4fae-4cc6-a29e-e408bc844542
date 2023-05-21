@@ -1,7 +1,8 @@
 # Paths
 figs_path = '../outputs/figures/'
-data_raw_path = '../data/raw/cat_tave.nc'    
-data_interm_path = '../../data/interim/' 
+data_raw_path = '../data/raw/'    
+data_interm_path = '../../data/interim/'
+pred_path = "../outputs/predictions/"
 
 # Averages
 start=500
@@ -42,7 +43,7 @@ depth_label = 'Depth (m)'
 cbar_label = 'Temperature ('+u'\xb0'+'C)'
 cbar_diff_label = 'Temperature Change ('+u'\xb0'+'C)'
 cbar_sd_label = 'Temperature Standarad Deviation ('+u'\xb0'+'C)'
-
+cbar_label_err = 'Error ('+u'\xb0'+'C)'
 # Plots average trends
 
 vars_avgs = (
@@ -76,3 +77,24 @@ text_avgs = (
 )
 
 label_avgs = 'Flux $(Cm^3 s^{-1})$'
+
+# Predictions
+
+run_vars={
+    'dimension':3,
+    'lat':True ,
+    'lon':True,
+    'dep':True ,
+    'current':True , 
+    'bolus_vel':True , 
+    'sal':True ,
+    'eta':True , 
+    'density':True ,
+    'poly_degree':2,
+    'StepSize':1,
+    'predict':'DelT'
+}
+
+data_prefix = ''
+exp_prefix = ''
+model_prefix = 'alpha.001_'

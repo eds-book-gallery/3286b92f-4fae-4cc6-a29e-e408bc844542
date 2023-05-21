@@ -55,40 +55,40 @@ no_inputs = 0
 no_variables = 0
 
 if run_vars['dimension'] == 2:
-   tick_labels.append('Temperature')
-   temp_no_inputs = 9
-   tick_locations.append(temp_no_inputs/2)
-   grid_lines.append(temp_no_inputs)
-   subgroup_grid_lines_light.append([0,3,6,9])
-   subgroup_grid_lines_bold.append([0,9])
-   no_inputs = no_inputs + temp_no_inputs
-   no_variables = no_variables + 1
-   if run_vars['sal']:
-      tick_labels.append('Salinity')   
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
-   if run_vars['current']:
-      tick_labels.append('Zonal Current')   
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
-      tick_labels.append('Meridional Current')   
-      temp_no_inputs = 9
-      tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
-      grid_lines.append(grid_lines[-1]+temp_no_inputs)
-      subgroup_grid_lines_light.append([0,3,6,9])
-      subgroup_grid_lines_bold.append([0,9])
-      no_inputs = no_inputs + temp_no_inputs
-      no_variables = no_variables + 1
+    tick_labels.append('Temperature')
+    temp_no_inputs = 9
+    tick_locations.append(temp_no_inputs/2)
+    grid_lines.append(temp_no_inputs)
+    subgroup_grid_lines_light.append([0,3,6,9])
+    subgroup_grid_lines_bold.append([0,9])
+    no_inputs = no_inputs + temp_no_inputs
+    no_variables = no_variables + 1
+    if run_vars['sal']:
+        tick_labels.append('Salinity')   
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
+    if run_vars['current']:
+        tick_labels.append('Zonal Current')   
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
+        tick_labels.append('Meridional Current')   
+        temp_no_inputs = 9
+        tick_locations.append(grid_lines[-1]+(temp_no_inputs/2)+.5)
+        grid_lines.append(grid_lines[-1]+temp_no_inputs)
+        subgroup_grid_lines_light.append([0,3,6,9])
+        subgroup_grid_lines_bold.append([0,9])
+        no_inputs = no_inputs + temp_no_inputs
+        no_variables = no_variables + 1
    if run_vars['bolus_vel']:
       tick_labels.append('Zonal Bolus Velocities')
       temp_no_inputs = 9
@@ -123,6 +123,7 @@ if run_vars['dimension'] == 2:
       subgroup_grid_lines_bold.append([0,9])
       no_inputs = no_inputs + temp_no_inputs
       no_variables = no_variables + 1
+    
 elif run_vars['dimension'] == 3:
    tick_labels.append('Temperature')   
    temp_no_inputs = 27

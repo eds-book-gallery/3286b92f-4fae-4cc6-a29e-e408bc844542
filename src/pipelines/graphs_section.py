@@ -1,6 +1,5 @@
 """
-Plots instantaneous 
-fields from MITgcm dataset
+Plots fields from MITgcm dataset
 multiple cross sections
 """
 
@@ -22,7 +21,7 @@ def load_data(
     """
     
     print('Reading in MITGCM dataset ...')
-    da = xr.open_dataset(path_data)
+    da = xr.open_dataset(f"{path_data}cat_tave.nc")
     # Apply the Mask
     dam = np.where(
         da['Mask']==1, 
