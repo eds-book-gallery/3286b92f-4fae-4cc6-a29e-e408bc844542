@@ -1931,7 +1931,7 @@ def ReadMITGCM(
 
     ## Save mean and std to file, so can be used to un-normalise when using model to predict
     mean_std_file = (
-        "../outputs/logs/SinglePoint_"
+        "../outputs/predictions/SinglePoint_"
         + data_name
         + "_MeanStd.npz"
     )
