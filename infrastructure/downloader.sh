@@ -1,5 +1,6 @@
 # download source data to raw schema
 mkdir -p ../data/raw/
+mkdir -p ../data/interim
 cd ../data/raw/
 
 zenodo_get 10.5281/zenodo.7919172
@@ -10,8 +11,9 @@ for f in *.gz
     gzip -d "$f"
 done
 
-#Input output data
-cd ../../outputs/
+# download input to run notebook
+cd ../outputs/
+
 zenodo_get 10.5281/zenodo.7954232
 
 # unzip data
@@ -23,8 +25,5 @@ done
 
 mv MODELS/* models/ && rm -rf MODELS
 mv ITERATED_PREDICTION_ARRAYS/* predictions/ && rm -rf ITERATED_PREDICTION_ARRAYS
-
-mkdir ../data/interim
-mv trunc_io_arrays/* ../data/interim/ && rm trunc_io_arrays
-
+mv trunc_io_arrays/* ../data/interim/ && rm -rf trunc_io_arrays
 rm md5sums.txt
