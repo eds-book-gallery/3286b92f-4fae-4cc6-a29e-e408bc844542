@@ -80,7 +80,7 @@ label_avgs = 'Flux $(Cm^3 s^{-1})$'
 
 # Predictions
 
-run_vars={
+run_vars = {
     'dimension':3,
     'lat':True ,
     'lon':True,
@@ -98,3 +98,40 @@ run_vars={
 data_prefix = ''
 exp_prefix = ''
 model_prefix = 'alpha.001_'
+
+
+coe_nam = [
+    'Above NW', 
+    'Above N', 
+    'Above NE', 
+    'Above W', 
+    'Above', 
+    'Above E', 
+    'Above SW', 
+    'Above S', 
+    'Above SE',  
+    'NW', 
+    'N',
+    'NE',
+    'W', 
+    'Centre point',
+    'E', 
+    'SW', 
+    'S', 
+    'SE', 
+    'Below NW', 
+    'Below N', 
+    'Below NE',
+    'Below W', 
+    'Below', 
+    'Below E',
+    'Below SW',
+    'Below S',
+    'Below SE'
+]
+
+
+line_ligh = [0,3,6,9,12,15,18,21,24,27]
+line_bold = [0,9,18,27]
+
+temp_no_inputs = 27
