@@ -1,7 +1,7 @@
 # Paths
 figs_path = '../outputs/figures/'
 data_raw_path = '../data/raw/'    
-data_interm_path = '../../data/interim/'
+data_interim_path = '../../data/interim/'
 pred_path = "../outputs/predictions/"
 mod_path = "../outputs/models/"
 # Averages

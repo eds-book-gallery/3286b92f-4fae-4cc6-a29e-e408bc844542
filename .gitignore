@@ -11,6 +11,10 @@ conf/credentials.json
 *.npy
 *.txt
 
+data/*
+outputs/*
+
+
 # Distribution / packaging
 .Python
 build/
