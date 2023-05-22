@@ -312,6 +312,32 @@ def ocean_dynamics_plots(
         figs_path
 
     )
+    
+           
+    print("================================================")
+
+    print("\n  TIME SERIES AT 57° N, 17° E, and −25 m \n")
+
+    print("================================================\n")
+    
+    daa = da.sel(X=17, Y=57, Z=-25, method='nearest')
+    
+    daa['Ttave'].tail(7200).plot()
+    plt.show()
+    plt.close()
+    
+       
+    print("================================================")
+
+    print("\n  TIME SERIES AT 55° S, 9° E, and −25 m \n")
+
+    print("================================================\n")
+    
+    dab = da.sel(X=9, Y=-55, Z=-25, method='nearest')
+    dab['Ttave'].tail(7200).plot()
+    plt.show()
+    plt.close()
+
 
 
 ocean_dynamics_plots(
