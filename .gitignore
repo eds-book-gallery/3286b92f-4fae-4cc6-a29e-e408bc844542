@@ -11,6 +11,7 @@ conf/credentials.json
 *.npy
 *.txt
 *.png
+!notebooks/readme.txt
 data/*
 outputs/*
 outputs/figures/*
