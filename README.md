@@ -10,7 +10,7 @@
     <h1>Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature</h1>
 </div>
 
-# How to run - REVIEWERS
+# How to run (Reviewers)
 
 ## Running locally
 You may also download the notebook from GitHub to run it locally:
@@ -36,7 +36,7 @@ You may also download the notebook from GitHub to run it locally:
 6. Create and activate your environment from the `environment.yml` file
     ```bash
     conda env create -f environment.yml
-    conda team3-main-notebook
+    conda activate team3-main-notebook
     ```  
 
 7. Launch the jupyter interface of your preference, notebook, `jupyter notebook` or lab `jupyter lab`
