@@ -8,6 +8,7 @@ dependencies:
   - matplotlib
   - scikit-learn
   - scikit-image
+  - jupyter
   - pip
   - pip:
     - zenodo_get
