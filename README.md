@@ -10,7 +10,7 @@
     <h1>Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature</h1>
 </div>
 
-# How to run
+# How to run - REVIEWERS
 
 ## Running locally
 You may also download the notebook from GitHub to run it locally:
@@ -28,13 +28,18 @@ You may also download the notebook from GitHub to run it locally:
     cd repro-challenge-team-3
     ```
 
-5. Create and activate your environment from the `environment.yml` file
+5. Change to the `review` branch. This will ensure you are launching the latest version of the notebook.
+    ```bash
+    git checkout review
+    ```  
+   
+6. Create and activate your environment from the `environment.yml` file
     ```bash
     conda env create -f environment.yml
     conda team3-main-notebook
     ```  
 
-6. Launch the jupyter interface of your preference, notebook, `jupyter notebook` or lab `jupyter lab`
+7. Launch the jupyter interface of your preference, notebook, `jupyter notebook` or lab `jupyter lab`
 
 # Credits
 The **How to run** section was adapted from the [Project Pythia Cookbook](https://cookbooks.projectpythia.org/) project.
