@@ -141,7 +141,7 @@ ygrid_lines = [0, 3]+list(np.array(grid_lines[:])+3.)      # three rows represen
 
 vmax = np.nanmax(coeffs)
 
-av_coeffs=np.empty((no_variables+1,no_variables))
+av_coeffs=np.empty((no_variables+1, no_variables))
 for i in range(no_variables+1):
     i_group_start = int(ygrid_lines[i])
     i_group_end   = int(ygrid_lines[i+1])
@@ -151,7 +151,7 @@ for i in range(no_variables+1):
         av_coeffs[i,j] = np.nanmean(coeffs[i_group_start:i_group_end, j_group_start:j_group_end])
 fig = plt.figure(figsize=(4.5, 4.5), dpi=300 )
 ax = fig.add_subplot(111, aspect='equal')
-im = ax.pcolormesh(av_coeffs, shading='nearest', edgecolor='face', snap=True )
+im = ax.pcolormesh(av_coeffs, edgecolor='face', snap=True )
 
 # Create colorbar
 cbar = ax.figure.colorbar(im, ax=ax, shrink=0.6)#, extend='min')
@@ -197,7 +197,6 @@ for i in range(no_variables):
 
             im = ax.pcolormesh(
                 coeffs[j_group_start:j_group_end, i_group_start:i_group_end], 
-                shading='nearest',
                 edgecolors='face', 
                 snap=False, 
                 vmin=0, 
