@@ -333,6 +333,7 @@ def ocean_dynamics_plots(
     
     # Plot the first 20 years
     daa['Ttave'].head(7200).plot()
+    plt.xticks([])
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
     plt.show()
@@ -355,6 +356,7 @@ def ocean_dynamics_plots(
     
     # Plot the first 20 years
     dab['Ttave'].head(7200).plot()
+    plt.xticks([])
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
     plt.show()
