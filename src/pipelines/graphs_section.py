@@ -163,6 +163,8 @@ def ocean_dynamics_plots(
         np.amax(dam[0,:,y_coord,:]) 
     )
     
+    print("\n\n\n\n\n\n\n\n")
+    
     print("================================================")
 
     print("\n 25 M BELOW THE SURFACE FOR ONE PARTICULAR DAY \n")
@@ -249,6 +251,7 @@ def ocean_dynamics_plots(
     plt.show()
     plt.savefig(f"{figs_path}fig1c_color.png", format='png', bbox_inches = 'tight', pad_inches = 0.1)
     
+    print("\n\n\n\n\n\n\n\n")
    
     print("================================================")
 
@@ -313,6 +316,7 @@ def ocean_dynamics_plots(
 
     )
     
+    print("\n\n\n\n\n\n\n\n")
            
     print("================================================")
 
@@ -325,7 +329,8 @@ def ocean_dynamics_plots(
     daa['Ttave'].tail(7200).plot()
     plt.show()
     plt.close()
-    
+
+    print("\n\n\n\n\n\n\n\n")
        
     print("================================================")
 
