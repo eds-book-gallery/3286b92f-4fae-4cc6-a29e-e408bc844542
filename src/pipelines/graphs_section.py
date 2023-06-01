@@ -326,7 +326,15 @@ def ocean_dynamics_plots(
     
     daa = da.sel(X=17, Y=57, Z=-25, method='nearest')
     
-    daa['Ttave'].tail(7200).plot()
+    # Set figure's height and width
+    fig = plt.figure()
+    fig.set_figwidth(15)
+    fig.set_figheight(2)
+    
+    # Plot the first 20 years
+    daa['Ttave'].head(7200).plot()
+    plt.xlabel("Years")
+    plt.ylabel("Temp (°C)")
     plt.show()
     plt.close()
 
@@ -339,7 +347,16 @@ def ocean_dynamics_plots(
     print("================================================\n")
     
     dab = da.sel(X=9, Y=-55, Z=-25, method='nearest')
-    dab['Ttave'].tail(7200).plot()
+
+    # Set figure's height and width
+    fig = plt.figure()
+    fig.set_figwidth(15)
+    fig.set_figheight(2)
+    
+    # Plot the first 20 years
+    dab['Ttave'].head(7200).plot()
+    plt.xlabel("Years")
+    plt.ylabel("Temp (°C)")
     plt.show()
     plt.close()
 
