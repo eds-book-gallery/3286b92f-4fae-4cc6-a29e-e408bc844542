@@ -13,7 +13,7 @@ def denormalise_data(norm_data,mean,std):
     denorm_data = norm_data * std + mean
     return denorm_data
 
-def plot_scatter_data(run_vars,pkl_filename,data_name,model_name,norm_inputs_tr,norm_inputs_val,norm_inputs_te,lim=None,plot_val=True):
+def make_scatter_plots(run_vars,pkl_filename,data_name,model_name,norm_inputs_tr,norm_inputs_val,norm_inputs_te,lim=None,plot_val=True):
     with open(pkl_filename, 'rb') as file:
         print('opening '+pkl_filename)
         lr = pickle.load(file)
