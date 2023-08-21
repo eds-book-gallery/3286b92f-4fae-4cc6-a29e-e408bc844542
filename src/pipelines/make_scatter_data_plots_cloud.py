@@ -111,6 +111,13 @@ def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inp
     am.plot_scatter(model_name, denorm_outputs_tr, denorm_lr_predicted_tr, name='train', top=top, bottom=bottom,
                     text='(a)', save=False)
 
+    plt.savefig(
+        f"{figs_path}{model_name}_control_scatter_training.png",
+        bbox_inches = 'tight',
+        pad_inches = 0.1,
+        format='png'
+    )
+
     if plot_val == True:
         print("================================================")
 
@@ -119,3 +126,10 @@ def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inp
         print("================================================\n")
         am.plot_scatter(model_name, denorm_outputs_val, denorm_lr_predicted_val, name='Validation', top=top,
                         bottom=bottom, text='(a)', save=False)
+
+        plt.savefig(
+            f"{figs_path}{model_name}_control_scatter_validation.png",
+            bbox_inches = 'tight',
+            pad_inches = 0.1,
+            format='png'
+        )
