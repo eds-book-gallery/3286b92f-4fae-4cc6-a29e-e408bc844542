@@ -1,9 +1,9 @@
-name: Render
+name: Preview
 
 on:
   workflow_run:
     workflows: ["Build and push container image"]
-    branches: postprint
+    branches: [postprint]
     types:
       - completed
       
