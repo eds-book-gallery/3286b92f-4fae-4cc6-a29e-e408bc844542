@@ -43,7 +43,7 @@ lon_label = 'Longitude ('+u'\xb0'+' E)'
 depth_label = 'Depth (m)'
 cbar_label = 'Temperature ('+u'\xb0'+'C)'
 cbar_diff_label = 'Temperature Change ('+u'\xb0'+'C)'
-cbar_sd_label = 'Temperature Standarad Deviation ('+u'\xb0'+'C)'
+cbar_sd_label = 'Temperature Standard Deviation ('+u'\xb0'+'C)'
 cbar_label_err = 'Error ('+u'\xb0'+'C)'
 # Plots average trends
 
