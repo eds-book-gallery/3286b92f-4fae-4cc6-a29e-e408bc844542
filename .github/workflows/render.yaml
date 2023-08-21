@@ -3,7 +3,7 @@ name: Render
 on:
   workflow_run:
     workflows: ["Build and push container image"]
-    branches: [postprint]
+    branches: main
     types:
       - completed
       
