@@ -9,7 +9,11 @@ dependencies:
   - scikit-learn
   - scikit-image
   - jupyter
+  - intake
   - pip
   - pip:
     - zenodo_get
     - netcdf4
+    - intake_xarray
+    - s3fs
+    - h5netcdf
