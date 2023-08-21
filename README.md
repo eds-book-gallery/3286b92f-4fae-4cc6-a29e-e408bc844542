@@ -10,7 +10,7 @@
     <h1>Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature</h1>
 </div>
 
-# How to run (Reviewers)
+# How to run
 
 ## Running locally
 You may also download the notebook from GitHub to run it locally:
