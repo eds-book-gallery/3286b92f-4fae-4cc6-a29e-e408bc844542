@@ -336,6 +336,12 @@ def ocean_dynamics_plots(
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
     plt.show()
+    plt.savefig(
+        f"{figs_path}fig01g.png",
+        bbox_inches = 'tight',
+        pad_inches = 0.1,
+        format='png'
+    )
     plt.close()
 
     print("\n\n\n\n\n\n\n\n")
@@ -359,6 +365,12 @@ def ocean_dynamics_plots(
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
     plt.show()
+    plt.savefig(
+        f"{figs_path}fig01i.png",
+        bbox_inches = 'tight',
+        pad_inches = 0.1,
+        format='png'
+    )
     plt.close()
 
 
