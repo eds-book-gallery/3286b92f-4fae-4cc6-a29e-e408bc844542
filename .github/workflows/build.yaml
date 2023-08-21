@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - postprint
 
 jobs:
   build-and-push:
