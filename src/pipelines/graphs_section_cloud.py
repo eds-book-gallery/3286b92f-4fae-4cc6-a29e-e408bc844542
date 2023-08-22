@@ -14,6 +14,7 @@ import intake
 
 from general.constants_cloud import *
 
+os.makedirs(figs_path, exist_ok=True)
 
 def load_data(
 ):
@@ -48,6 +49,7 @@ def plot_depth_fields(
     cmap,
     figs_path
 ):
+
     plt = rfplt.plot_parms()
     fig = plt.figure(figsize=(2.2, 2), dpi=300)
     ax = fig.add_subplot(1, 1, 1)
