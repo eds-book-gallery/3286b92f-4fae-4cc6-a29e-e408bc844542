@@ -17,7 +17,7 @@ def denormalise_data(norm_data, mean, std):
     return denorm_data
 
 
-def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inputs_val, lim=None, plot_val=True):
+def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inputs_val, lim=None, plot_val=True, fig_prefix='fig'):
     fs = s3fs.S3FileSystem(
         anon=True,
         client_kwargs={"endpoint_url": "https://pangeo-eosc-minioapi.vm.fedcloud.eu/"},
@@ -109,14 +109,7 @@ def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inp
 
     print("================================================\n")
     am.plot_scatter(model_name, denorm_outputs_tr, denorm_lr_predicted_tr, name='train', top=top, bottom=bottom,
-                    text='(a)', save=False)
-
-    plt.savefig(
-        f"{figs_path}{model_name}_control_scatter_training.png",
-        bbox_inches = 'tight',
-        pad_inches = 0.1,
-        format='png'
-    )
+                    text='(a)', save=True, fig_prefix=f'{fig_prefix}a')
 
     if plot_val == True:
         print("================================================")
@@ -125,11 +118,4 @@ def make_scatter_plots(run_vars, data_name, model_name, norm_inputs_tr, norm_inp
 
         print("================================================\n")
         am.plot_scatter(model_name, denorm_outputs_val, denorm_lr_predicted_val, name='Validation', top=top,
-                        bottom=bottom, text='(a)', save=False)
-
-        plt.savefig(
-            f"{figs_path}{model_name}_control_scatter_validation.png",
-            bbox_inches = 'tight',
-            pad_inches = 0.1,
-            format='png'
-        )
+                        bottom=bottom, text='(b)', save=True, fig_prefix=f'{fig_prefix}b')

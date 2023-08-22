@@ -12,7 +12,7 @@ import intake
 import s3fs
 
 
-def make_error_plots(mitgcm_filename, exp_name, cntrl_name):
+def make_error_plots(mitgcm_filename, exp_name, cntrl_name, fig_prefix='fig'):
     #-------------------
     # Read in land mask 
     #-------------------
@@ -51,6 +51,12 @@ def make_error_plots(mitgcm_filename, exp_name, cntrl_name):
                                          mitgcm_ds['X'].values, mitgcm_ds['Y'].values, mitgcm_ds['Z'].values,
                                          text='(a)', title=None, min_value=0.0, max_value=0.000306, cmap='Reds',
                                          cbar_label=cbar_label, Sci=True)
+    fig.savefig(
+        f"{figs_path}{fig_prefix}a_{exp_name}_coeffs.png",
+        bbox_inches='tight',
+        pad_inches=0.1,
+        format='png'
+    )
     plt.show()
 
     
@@ -70,6 +76,12 @@ def make_error_plots(mitgcm_filename, exp_name, cntrl_name):
     mitgcm_ds['X'].values, mitgcm_ds['Y'].values, mitgcm_ds['Z'].values,
     text='(b)', title=None, min_value=None, max_value=None, diff=True,
     cbar_label=cbar_label, Sci=True)
+    fig.savefig(
+        f"{figs_path}{fig_prefix}b_{exp_name}_coeffs.png",
+        bbox_inches='tight',
+        pad_inches=0.1,
+        format='png'
+    )
     plt.show()
     
     

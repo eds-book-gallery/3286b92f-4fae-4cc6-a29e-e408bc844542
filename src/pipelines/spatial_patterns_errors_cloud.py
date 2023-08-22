@@ -105,13 +105,13 @@ def graph_abs_error(
         cmap='Reds',
         Sci=True
     )
-    plt.show()
-    plt.savefig(
-        f"{figs_path}{exp_nam}_AvAbsErrors_z{str(level)}.png", 
+    fig.savefig(
+        f"{figs_path}fig3a_{exp_nam}_AvAbsErrors_z{str(level)}.png",
         bbox_inches = 'tight', 
         pad_inches = 0.1, 
         format='png'
     )
+    plt.show()
 
     fig, ax, im = rfplt.plot_xconst_crss_sec(
         avg_err[:,:,:], 
@@ -128,14 +128,13 @@ def graph_abs_error(
         cbar_label=cbar_label_err, 
         Sci=True
     )
-    plt.show()
-    
-    plt.savefig(
-        f"{figs_path}{exp_nam}_AvAbsErrors_x{str(x_coord)}.png", 
+    fig.savefig(
+        f"{figs_path}fig3b_{exp_nam}_AvAbsErrors_x{str(x_coord)}.png",
         bbox_inches = 'tight', 
         pad_inches = 0.1, 
         format='png'
     )
+    plt.show()
 
 def main_pattern_errors(
     run_vars=run_vars,

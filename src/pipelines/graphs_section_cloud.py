@@ -70,13 +70,13 @@ def plot_depth_fields(
         np.round(da_y.values[np.array(lat_arange).astype(int)], decimals=-1).astype(int)
     ) 
     plt.text(-0.1, 0.86, lab, transform=fig.transFigure)
-    plt.show()
     plt.savefig(
         f"{figs_path}{name_o}", 
         format='png', 
         bbox_inches = 'tight', 
         pad_inches = 0.1
     )
+    plt.show()
     return plt, im, ax
     
     
@@ -117,14 +117,14 @@ def plot_cross_sections(
     ax.set_yticks(depth_arange)
     ax.set_yticklabels(da_z.values[np.array(depth_arange)].astype(int))
     plt.text(-0.055, 0.86, lab, transform=fig.transFigure)
-    plt.show()
     plt.savefig(
         f"{figs_path}{name_o}", 
         format='png',
         bbox_inches = 'tight', 
         pad_inches = 0.1
     )
-    
+    plt.show()
+
     return plt
 
 
@@ -191,10 +191,10 @@ def ocean_dynamics_plots(
     fig = plt.figure( figsize=(5.5, .2), dpi=300 )
     cbaxes = fig.add_axes([0.05, 0.05, 0.9, 0.9 ]) 
     cb = plt.colorbar(im, ax=ax, orientation='horizontal', cax=cbaxes)
-    cb.set_label(cbar_label)    
-    plt.show()
+    cb.set_label(cbar_label)
     plt.savefig(f"{figs_path}fig1a_color.png", format='png', bbox_inches = 'tight', pad_inches = 0.1)
-    
+    plt.show()
+
     print("Change in temperature between over 1 day at 25 m below the surface.")
 
     plt, im, ax = plot_depth_fields(
@@ -221,9 +221,9 @@ def ocean_dynamics_plots(
     cb.set_label(cbar_diff_label)    
     cb.formatter.set_powerlimits((-2, 2))
     cb.update_ticks()
-    plt.show()
     plt.savefig(f"{figs_path}fig1b_color.png", format='png', bbox_inches = 'tight', pad_inches = 0.1)
- 
+    plt.show()
+
     print("Standard deviation in temperature at 25 m below the surface.")
 
     plt, im, ax = plot_depth_fields(
@@ -247,9 +247,9 @@ def ocean_dynamics_plots(
     cbaxes = fig.add_axes([0.05, 0.05, 0.9, 0.9 ]) 
     cb = plt.colorbar(im, ax=ax, orientation='horizontal', cax=cbaxes, extend='both')
     cb.set_label(cbar_sd_label)    
-    plt.show()
     plt.savefig(f"{figs_path}fig1c_color.png", format='png', bbox_inches = 'tight', pad_inches = 0.1)
-    
+    plt.show()
+
     print("\n\n\n\n\n\n\n\n")
    
     print("================================================")
@@ -270,7 +270,7 @@ def ocean_dynamics_plots(
         depth_arange,
         da_y,
         da_z,
-        "fig01d.png",
+        "fig1d.png",
         "(d)",
         None,
         figs_path
@@ -289,7 +289,7 @@ def ocean_dynamics_plots(
         depth_arange,
         da_y,
         da_z,
-        "fig01e.png",
+        "fig1e.png",
         "(e)",
         'bwr',
         figs_path
@@ -308,7 +308,7 @@ def ocean_dynamics_plots(
         depth_arange,
         da_y,
         da_z,
-        "fig01f.png",
+        "fig1f.png",
         "(f)",
         None,
         figs_path
@@ -335,13 +335,13 @@ def ocean_dynamics_plots(
     plt.xticks([])
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
-    plt.show()
     plt.savefig(
-        f"{figs_path}fig01g.png",
+        f"{figs_path}fig1g.png",
         bbox_inches = 'tight',
         pad_inches = 0.1,
         format='png'
     )
+    plt.show()
     plt.close()
 
     print("\n\n\n\n\n\n\n\n")
@@ -364,13 +364,13 @@ def ocean_dynamics_plots(
     plt.xticks([])
     plt.xlabel("Years")
     plt.ylabel("Temp (°C)")
-    plt.show()
     plt.savefig(
-        f"{figs_path}fig01i.png",
+        f"{figs_path}fig1i.png",
         bbox_inches = 'tight',
         pad_inches = 0.1,
         format='png'
     )
+    plt.show()
     plt.close()
 
 

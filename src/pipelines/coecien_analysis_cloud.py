@@ -182,13 +182,13 @@ ax.tick_params(
 ax.invert_yaxis()
 plt.text(0.03, 0.88, '(a)', transform=fig.transFigure)  
 fig.tight_layout()
-plt.savefig(
-    f"{figs_path}fig06a.png", 
+fig.savefig(
+    f"{figs_path}fig4a_{exp_name}.png",
     bbox_inches='tight',
     pad_inches=0.1, 
     format='png'
 )
-  
+plt.show()
 
 for i in range(no_variables):
     i_group_start = int(xgrid_lines[i])
@@ -248,11 +248,11 @@ for i in range(no_variables):
             )  
 
             fig.tight_layout()
-            plt.show()
             plt.savefig(
-                f"{figs_path}{exp_name}_{ylabels[j]}_{xlabels[i]}_coeffs.png", 
+                f"{figs_path}fig4b_{exp_name}_{ylabels[j]}_{xlabels[i]}_coeffs.png",
                 bbox_inches = 'tight', 
                 pad_inches = 0.1, 
                 format='png'
             )
+            plt.show()
             plt.close()
