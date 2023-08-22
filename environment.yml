@@ -1,15 +1,6 @@
-name: team3-main-notebook
+name: pangeo
 channels:
-  - conda-forge
-  - defaults
+ - conda-forge
 dependencies:
-  - python=3.10
-  - xarray
-  - matplotlib
-  - scikit-learn
-  - scikit-image
-  - jupyter
-  - pip
-  - pip:
-    - zenodo_get
-    - netcdf4
+ - python=3.10
+ - pangeo-notebook=2022.09.21
