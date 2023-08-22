@@ -3,11 +3,14 @@
 #     stats: function to create stats comparing two models and output these to a file
 #     plotting: function to create plots comparing truth to predictions
 
+import sys
+sys.path.append('src')
+
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 import sklearn.metrics as metrics
-from constants import *
+from general.constants_cloud import *
 
 # Set Plotting variables
 plt.rcParams.update({'font.size': 10})
@@ -69,7 +72,7 @@ def get_stats(exp_name, name1, truth1, exp1, pers1=None, name2=None, truth2=None
 
  
 # Make scatter plot of predictions against truth 
-def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None, exp_cor=True, top=None, bottom=None, text=None,save=True):
+def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None, exp_cor=True, top=None, bottom=None, text=None,save=True, fig_prefix='fig'):
  
    outdir = figs_path
 
@@ -117,7 +120,7 @@ def plot_scatter(model_name, data1, data2, name='norm', xlabel=None, ylabel=None
       ax1.plot([bottom, top], [0, 0], 'k--', lw=1)
    
    if save==True:    
-        plt.savefig(outdir+'PLOTS/'+model_name+'/'+model_name+'_scatter_'+xlabel_filename+'Vs'+ylabel_filename+'_'+name+'.png',
+        fig.savefig(f'{figs_path}{fig_prefix}_{model_name}_scatter_{xlabel_filename}Vs{ylabel_filename}_{name}.png',
                bbox_inches = 'tight', pad_inches = 0.1) #  Leave as png, far too large filesize if eps!
 
    plt.show()
