@@ -15,7 +15,7 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-      - name: Check conditions meets
+      - name: Check conditions meet
         run: echo 'The triggering workflow passed'
       - uses: actions/checkout@v2
         with:
@@ -70,5 +70,5 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'eds-book-gallery' && github.event.workflow_run.conclusion == 'failure' }}
     steps:
-      - name: Check conditions meets
+      - name: Check conditions meet
         run: echo 'The triggering workflow failed'
