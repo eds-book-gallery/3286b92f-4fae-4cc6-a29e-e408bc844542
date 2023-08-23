@@ -10,8 +10,8 @@ dependencies:
   - scikit-learn
   - scikit-image
   - intake
-  - intake_xarray
+  - intake-xarray
   - netcdf4
-    h5netcdf
+  - h5netcdf
   - s3fs
   - zenodo_get
