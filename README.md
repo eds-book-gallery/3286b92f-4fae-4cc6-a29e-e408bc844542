@@ -7,7 +7,7 @@
 </p>
 
 <div align="center">
-    <h1>Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature (CIRC23) </h1>
+    <h1>Learning the underlying physics of a simulation model of the ocean's temperature (CIRC23)</h1>
 </div>
 
 <p align="center">
