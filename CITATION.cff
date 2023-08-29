@@ -19,14 +19,10 @@ authors:
     affiliation: Claremont McKenna College
   - name: "This EDS book notebook contributors"
     website: "https://github.com/eds-book-gallery/3286b92f-4fae-4cc6-a29e-e408bc844542/graphs/contributors"
-version: 1.0.0
 identifiers:
   - type: doi
     value: 10.5281/zenodo.8296922
     description: The concept DOI for the collection containing all versions of the notebook.
-  - type: doi
-    value: 10.5281/zenodo.FIXME
-    description: The versioned DOI for the current version of the notebook.
 abstract: "Notebook developed to demonstrate the computational reproduction of the paper A Sensitivity Analysis of a Regression Model of Ocean Temperature, published in Environmental Data Science journal."
 references:
   - authors:
