@@ -5,7 +5,7 @@ on:
     workflows: ["Build and push container image"]
     branches: [postprint]
     types: [completed]
-      
+
 # This job installs dependencies, build the jupyter notebook, and pushes it to `preview`, a new `branch`
 jobs:
   on-success:
