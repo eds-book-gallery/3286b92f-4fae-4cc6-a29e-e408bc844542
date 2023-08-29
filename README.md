@@ -27,6 +27,12 @@
 </p>
 
 <p align="center">
+    <a href="https://w3id.org/ro-id/62628420-93f5-4ed6-8178-f09bddabfca3">
+        <img alt="RoHub" src="https://img.shields.io/badge/RoHub-FAIR_Executable_Research_Object-2ea44f?logo=Open+Access&logoColor=blue">
+    </a>
+</p>
+
+<p align="center">
 <img src="https://www.commondreams.org/media-library/ocean-surface-temperatures.jpg?id=33699188&width=1200&height=400&quality=90&coordinates=0%2C667%2C0%2C667" alt="thumbnail" width="500"/>
 </p>
 
