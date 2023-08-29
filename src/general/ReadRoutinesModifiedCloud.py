@@ -291,7 +291,6 @@ def ReadMITGCM(
     z_up_1 = (
             z_size - 1
     )  # one higher than the point we want to forecast for, i.e. first point we're not forecasting
-    da_U2 = np.concatenate((da_U[:, :, :, -1:], da_U[:, :, :, :-1]), axis=3)
 
     ## Region 2: West side, Southern edge, above the depth where the land split carries on. One cell strip where throughflow enters.
     # Move East most data to column on West side, to allow viewaswindows to deal with throughflow
