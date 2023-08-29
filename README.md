@@ -21,7 +21,7 @@
         <img alt="render" src="https://github.com/eds-book-gallery/3286b92f-4fae-4cc6-a29e-e408bc844542/actions/workflows/render.yaml/badge.svg">
     </a>
     <a href="https://github.com/alan-turing-institute/environmental-ds-book/issues/172">
-        <img alt="review" src="https://img.shields.io/badge/view-review-purple">
+        <img alt="review" src="https://img.shields.io/badge/view-revixew-purple">
     </a>
     <br/>
 </p>
@@ -29,6 +29,9 @@
 <p align="center">
     <a href="https://w3id.org/ro-id/62628420-93f5-4ed6-8178-f09bddabfca3">
         <img alt="RoHub" src="https://img.shields.io/badge/RoHub-FAIR_Executable_Research_Object-2ea44f?logo=Open+Access&logoColor=blue">
+    </a>
+    <a href="https://zenodo.org/badge/latestdoi/636822482">
+        <img alt="doi" src="https://zenodo.org/badge/636822482.svg">
     </a>
 </p>
 
