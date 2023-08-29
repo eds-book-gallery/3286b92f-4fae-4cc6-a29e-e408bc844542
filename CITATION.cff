@@ -1,8 +1,6 @@
 cff-version: 1.2.0
 title: "Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature (Jupyter Notebook) published in the Environmental Data Science book"
-message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+message: "If you use this software, please cite it using the metadata from this file."
 type: software
 authors:
   - family-names: Malhotra
