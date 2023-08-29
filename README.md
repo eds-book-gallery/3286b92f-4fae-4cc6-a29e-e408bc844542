@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-    <a href="https://w3id.org/ro-id/62628420-93f5-4ed6-8178-f09bddabfca3">
+    <a href="https://w3id.org/ro-id/b078ae9c-2ae3-4c10-8a86-673b55d2b274">
         <img alt="RoHub" src="https://img.shields.io/badge/RoHub-FAIR_Executable_Research_Object-2ea44f?logo=Open+Access&logoColor=blue">
     </a>
     <a href="https://zenodo.org/badge/latestdoi/636822482">
