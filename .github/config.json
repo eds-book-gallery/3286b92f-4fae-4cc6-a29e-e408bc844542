@@ -1,5 +1,5 @@
 {
-    "notebook_name": "",
-    "kernel": "",
-    "quay_image": ""
+    "notebook_name": "notebook.ipynb",
+    "kernel": "python",
+    "quay_image": "edsbook/3286b92f-4fae-4cc6-a29e-e408bc844542"
 }

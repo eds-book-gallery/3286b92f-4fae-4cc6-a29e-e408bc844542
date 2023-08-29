@@ -12,7 +12,8 @@ conf/credentials.json
 *.txt
 *.png
 !notebooks/readme.txt
-data/*
+data/raw/*
+data/interim/*
 outputs/*
 outputs/figures/*
 

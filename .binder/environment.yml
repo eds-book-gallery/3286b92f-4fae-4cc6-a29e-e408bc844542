@@ -1,0 +1,16 @@
+name: 3286b92f-4fae-4cc6-a29e-e408bc844542
+channels:
+ - conda-forge
+dependencies:
+  - python=3.10
+  - jupyter
+  - xarray
+  - matplotlib
+  - scikit-learn
+  - scikit-image
+  - intake
+  - intake-xarray
+  - netcdf4
+  - h5netcdf
+  - s3fs
+  - zenodo_get
