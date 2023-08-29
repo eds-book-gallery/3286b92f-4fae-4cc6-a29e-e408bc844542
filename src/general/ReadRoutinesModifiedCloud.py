@@ -291,7 +291,6 @@ def ReadMITGCM(
     z_up_1 = (
             z_size - 1
     )  # one higher than the point we want to forecast for, i.e. first point we're not forecasting
-    da_U2 = np.concatenate((da_U[:, :, :, -1:], da_U[:, :, :, :-1]), axis=3)
 
     ## Region 2: West side, Southern edge, above the depth where the land split carries on. One cell strip where throughflow enters.
     # Move East most data to column on West side, to allow viewaswindows to deal with throughflow
@@ -1626,6 +1625,68 @@ def ReadMITGCM(
         outputs_te_Temp = np.concatenate(
             (outputs_te_Temp, outputs_3_Temp), axis=0
         )
+
+    # Release memory
+    ds = None
+    da_T = None
+    da_S = None
+    da_U = None
+    da_V = None
+    da_Kwx = None
+    da_Kwy = None
+    da_Kwz = None
+    da_Eta = None
+    da_lon = None
+    da_T2 = None
+    da_S2 = None
+    da_U2 = None
+    da_V2 = None
+    da_Kwx2 = None
+    da_Kwy2 = None
+    da_Kwz2 = None
+    da_Eta2 = None
+    da_lon2 = None
+    da_T3 = None
+    da_S3 = None
+    da_U3 = None
+    da_V3 = None
+    da_Kwx3 = None
+    da_Kwy3 = None
+    da_Kwz3 = None
+    da_Eta3 = None
+    da_lon3 = None
+    da_lat = None
+    da_depth = None
+    del ds
+    del da_T
+    del da_S
+    del da_U
+    del da_V
+    del da_Kwx
+    del da_Kwy
+    del da_Kwz
+    del da_Eta
+    del da_lon
+    del da_T2
+    del da_S2
+    del da_U2
+    del da_V2
+    del da_Kwx2
+    del da_Kwy2
+    del da_Kwz2
+    del da_Eta2
+    del da_lon2
+    del da_T3
+    del da_S3
+    del da_U3
+    del da_V3
+    del da_Kwx3
+    del da_Kwy3
+    del da_Kwz3
+    del da_Eta3
+    del da_lon3
+    del da_lat
+    del da_depth
 
     # Randomise the sample order
     np.random.seed(5)
