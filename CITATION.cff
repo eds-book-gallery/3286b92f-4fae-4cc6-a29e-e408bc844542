@@ -19,7 +19,7 @@ authors:
     affiliation: Claremont McKenna College
   - name: "This EDS book notebook contributors"
     website: "https://github.com/eds-book-gallery/3286b92f-4fae-4cc6-a29e-e408bc844542/graphs/contributors"
-version: v1.0.6 # This is automatically set using the bumpversion tool.
+version: v1.0.13 # This is automatically set using the bumpversion tool.
 identifiers:
   - type: doi
     value: 10.5281/zenodo.8296922
