@@ -6,7 +6,7 @@ dependencies:
   - jupyter
   - xarray
   - matplotlib
-  - scikit-learn
+  - scikit-learn==1.3.*
   - scikit-image
   - intake
   - intake-xarray
