@@ -1,7 +1,4 @@
 description: Cloud-stored models training data from https://doi.org/10.5281/zenodo.7954232
-plugins:
-  source:
-    - module: intake_xarray
 sources:
   alpha.001_3dLatLonDepUVBolSalEtaDnsPolyDeg2_Step1_PredictDelT:
     args:
