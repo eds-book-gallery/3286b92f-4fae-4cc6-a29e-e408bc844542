@@ -1,7 +1,4 @@
 description: Cloud-stored paper input data from https://doi.org/10.5281/zenodo.7919172
-plugins:
-  source:
-    - module: intake_xarray
 sources:
   MITGCM_model:
     args:
