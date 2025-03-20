@@ -1,30 +1,48 @@
 cff-version: 1.2.0
-title: "Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature (Jupyter Notebook) published in the Environmental Data Science book"
-message: "If you use this software, please cite it using the metadata from this file."
-type: software
+message: Please cite the following works when using this project.
+abstract: >-
+  Notebook developed to demonstrate the computational reproduction of the paper
+  A Sensitivity Analysis of a Regression Model of Ocean Temperature, published
+  in Environmental Data Science journal.
+title: >-
+  Learning the Underlying Physics of a Simulation Model of the Ocean's
+  Temperature (Jupyter Notebook) published in the Environmental Data Science
+  book
 authors:
   - family-names: Malhotra
     given-names: Garima
-    orcid: https://orcid.org/0000-0003-4179-628X
-    website: https://github.com/garimamalhotra
     affiliation: University of Colorado Boulder
-  - family-names: Pinto Veizaga
-    given-names: Daniela
-    orcid: https://orcid.org/0009-0005-8588-3774
+    orcid: 0000-0003-4179-628X
+    email: garima.Malhotra@colorado.edu
+    website: https://github.com/garimamalhotra
+  - family-names: Veizaga
+    given-names: Daniela Pinto
+    affiliation: University of California, Berkeley
+    orcid: 0009-0005-8588-3774
     website: https://github.com/dapivei
-    affiliation: University of California Berkeley
-  - family-names: Peña Velasco
-    given-names: Jorge Eduardo
-    website: https://github.com/jedpe
+  - family-names: Velasco
+    given-names: Jorge Eduardo Peña
     affiliation: Claremont McKenna College
-  - name: "This EDS book notebook contributors"
-    website: "https://github.com/eds-book-gallery/3286b92f-4fae-4cc6-a29e-e408bc844542/graphs/contributors"
-version: v1.0.19 # This is automatically set using the bumpversion tool.
+    website: https://github.com/jedpe
+date-released: '2024-08-29'
+contact:
+  - family-names: Malhotra
+    given-names: Garima
+    affiliation: University of Colorado Boulder
+    orcid: 0000-0003-4179-628X
+    email: garima.Malhotra@colorado.edu
+    website: https://github.com/garimamalhotra
 identifiers:
   - type: doi
     value: 10.5281/zenodo.8296922
-    description: The concept DOI for the collection containing all versions of the notebook.
-abstract: "Notebook developed to demonstrate the computational reproduction of the paper A Sensitivity Analysis of a Regression Model of Ocean Temperature, published in Environmental Data Science journal."
+keywords:
+  - environmental data science
+  - oceanography
+  - modelling
+  - reproducibility challenge
+license: MITs
+license-url: https://opensource.org/license/MIT
+repository: https://github.com/eds-book/3286b92f-4fae-4cc6-a29e-e408bc844542
 references:
   - authors:
       - family-names: Furner
@@ -41,12 +59,11 @@ references:
         given-names: Emily
     doi: 10.1017/eds.2022.10
     type: article
-    scope: "Reproduced paper as part of the 2023 Climate Informatics Reproducibility Challenge."
-    title: "A Sensitivity Analysis of a Regression Model of Ocean Temperature"
-    journal: "Environmental Data Science journal"
+    scope: >-
+      Reproduced paper as part of the 2023 Climate Informatics Reproducibility
+      Challenge.
+    title: A Sensitivity Analysis of a Regression Model of Ocean Temperature
+    journal: Environmental Data Science journal
     year: 2022
-keywords:
-  - Environmental Data Science
-  - Oceanography
-  - Modelling
-  - Reproducibility Challenge
+type: software
+version: v2.0.0
