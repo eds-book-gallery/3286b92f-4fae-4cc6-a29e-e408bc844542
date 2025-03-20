@@ -1,4 +1,4 @@
-name: render
+name: Execute Notebook
 
 on:
   workflow_run:
@@ -6,14 +6,35 @@ on:
     branches: main
     types:
       - completed
-      
+
+env:
+  # `BASE_URL` determines the website is served from, including CSS & JS assets
+  # You may need to change this to `BASE_URL: ''`
+  BASE_URL: /${{ github.event.repository.name }}
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions: write-all
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 # This job installs dependencies, build the jupyter notebook, and pushes it to `render`, a new `branch`
 jobs:
   build:
     name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-    if: github.repository_owner == 'eds-book-gallery'
+#    permissions:
+#      id-token: write
+#      pages: write
+
+    if: github.repository_owner == 'eds-book'
     strategy:
       fail-fast: false
       matrix:
@@ -27,7 +48,7 @@ jobs:
       - name: Get properties from the config file
         id: config_file
         uses: notiz-dev/github-action-json-property@release
-        with: 
+        with:
           path: '.github/config.json'
           prop_path: 'notebook_name'
       # Set quay image
@@ -60,7 +81,6 @@ jobs:
           ls
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git rm \* ':!${{steps.config_file.outputs.prop}}'
           git add ${{steps.config_file.outputs.prop}}
           git commit -m 'update'
       - name: Push
