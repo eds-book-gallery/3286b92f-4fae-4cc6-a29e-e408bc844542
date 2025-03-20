@@ -1,0 +1,132 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+extends:
+  - https://raw.githubusercontent.com/eds-book/edsbook-config/main/edsbook.yml
+project:
+  id: 3286b92f-4fae-4cc6-a29e-e408bc844542
+  title: Learning the Underlying Physics of a Simulation Model of the Ocean's Temperature (Jupyter Notebook) published in the Environmental Data Science book
+  short_title: Underlying physics of the ocean's temperature (CIRC23)
+  abstract: Notebook developed to demonstrate the computational reproduction of the paper A Sensitivity Analysis of a Regression Model of Ocean Temperature, published in Environmental Data Science journal.
+  authors:
+    - id: gmalhotra
+      name: Garima Malhotra
+      corresponding: true
+      email: garima.Malhotra@colorado.edu
+      orcid: 0000-0003-4179-628X
+      url: https://github.com/garimamalhotra
+      roles:
+        - Investigation
+        - Software
+        - Visualization
+      affiliations:
+        - boulder
+    - id: dpinto
+      name: Daniela Pinto Veizaga
+      orcid: 0009-0005-8588-3774
+      url: https://github.com/dapivei
+      roles:
+        - Investigation
+        - Software
+        - Visualization
+      affiliations:
+        - berkeley
+    - id: jpena
+      name: Jorge Eduardo Peña Velasco
+      url: https://github.com/jedpe
+      roles:
+        - Investigation
+        - Software
+        - Visualization
+      affiliations:
+        - claremont
+  reviewers:
+    - id: rfurner
+      name: Rachel Furner
+      orcid: 0000-0003-0535-4388
+      url: https://github.com/RachelFurner
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - bas
+    - id: obautista
+      name: Oscar Bautista
+      url: https://github.com/oscarbau
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - wfp
+    - id: rbarros
+      name: Ricardo Barros Lourenço
+      orcid: 0000-0002-4158-3244
+      url: https://github.com/ricardobarroslourenco
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - mcmaster
+  editors:
+    - id: afouilloux
+      name: Anne Fouilloux
+      orcid: 0000-0002-1784-2920
+      url: https://github.com/annefou
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - simula
+  affiliations:
+    - id: boulder
+      name: University of Colorado Boulder
+    - id: berkeley
+      name: University of California, Berkeley
+    - id: claremont
+      name: Claremont McKenna College
+    - id: bas
+      name: British Antarctic Survey
+    - id: wfp
+      name: World Food Programme
+    - id: mcmaster
+      name: McMaster University
+    - id: simula
+      name: Simula Research Laboratory
+  subject: Climate
+  keywords:
+    - environmental data science
+    - oceanography
+    - modelling
+    - reproducibility challenge
+  venue:
+    title: Environmental Data Science Book
+    short_title: EDS Book
+    url: https://www.edsbook.org
+  issue:
+    name: Special Issue
+  thumbnail: images/thumbnail.png
+  requirements:
+    - environment.yml
+  doi: 10.5281/zenodo.8296922
+  github: https://github.com/eds-book/3286b92f-4fae-4cc6-a29e-e408bc844542
+  jupyter:
+    binder:
+      repo: eds-book/3286b92f-4fae-4cc6-a29e-e408bc844542
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+  date: 2024-08-29
+  toc:
+    - file: notebook.ipynb
+  exports:
+    - format: pdf
+      template: curvenote
+      article: notebook.ipynb
+      output: exports/notebook.pdf
+    - format: cff
+      type: software
+      version: v2.0.0
+      license: MITs
+      license-url: https://opensource.org/license/MIT
+  bibliography:
+    - references.bib
+
+site:
+  template: book-theme
