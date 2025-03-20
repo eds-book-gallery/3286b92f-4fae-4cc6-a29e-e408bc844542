@@ -125,6 +125,26 @@ project:
       version: v2.0.0
       license: MITs
       license-url: https://opensource.org/license/MIT
+      references:
+        - authors:
+            - family-names: Furner
+              given-names: Rachel
+            - family-names: Haynes
+              given-names: Peter
+            - family-names: Munday
+              given-names: Dave
+            - family-names: Brooks
+              given-names: Paige
+            - family-names: Jones
+              given-names: Daniel C.
+            - family-names: Shuckburgh
+              given-names: Emily
+          doi: 10.1017/eds.2022.10
+          type: article
+          scope: "Reproduced paper as part of the 2023 Climate Informatics Reproducibility Challenge."
+          title: "A Sensitivity Analysis of a Regression Model of Ocean Temperature"
+          journal: "Environmental Data Science journal"
+          year: 2022
   bibliography:
     - references.bib
 
