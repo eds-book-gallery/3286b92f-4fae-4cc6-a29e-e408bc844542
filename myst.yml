@@ -87,7 +87,7 @@ project:
       name: McMaster University
     - id: simula
       name: Simula Research Laboratory
-  subject: Climate
+  subject: Ocean
   keywords:
     - Ocean
     - Modelling
