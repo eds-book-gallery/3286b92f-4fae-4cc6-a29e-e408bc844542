@@ -36,10 +36,10 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.8296922
 keywords:
-  - environmental data science
-  - oceanography
-  - modelling
-  - reproducibility challenge
+  - Ocean
+  - Modelling
+  - Special Issue
+  - Python
 license: MITs
 license-url: https://opensource.org/license/MIT
 repository: https://github.com/eds-book/3286b92f-4fae-4cc6-a29e-e408bc844542

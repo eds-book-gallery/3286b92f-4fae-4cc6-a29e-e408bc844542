@@ -89,10 +89,10 @@ project:
       name: Simula Research Laboratory
   subject: Climate
   keywords:
-    - environmental data science
-    - oceanography
-    - modelling
-    - reproducibility challenge
+    - Ocean
+    - Modelling
+    - Special Issue
+    - Python
   venue:
     title: Environmental Data Science Book
     short_title: EDS Book
