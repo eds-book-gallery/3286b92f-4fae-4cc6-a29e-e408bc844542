@@ -87,9 +87,9 @@ project:
       name: McMaster University
     - id: simula
       name: Simula Research Laboratory
-  subject: Ocean
+  subject: Oceans
   keywords:
-    - Ocean
+    - Oceans
     - Modelling
     - Special Issue
     - Python
