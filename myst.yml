@@ -13,7 +13,7 @@ project:
       corresponding: true
       email: garima.Malhotra@colorado.edu
       orcid: 0000-0003-4179-628X
-      url: https://github.com/garimamalhotra
+      github: garimamalhotra
       roles:
         - Investigation
         - Software
@@ -23,7 +23,7 @@ project:
     - id: dpinto
       name: Daniela Pinto Veizaga
       orcid: 0009-0005-8588-3774
-      url: https://github.com/dapivei
+      github: dapivei
       roles:
         - Investigation
         - Software
@@ -32,7 +32,7 @@ project:
         - berkeley
     - id: jpena
       name: Jorge Eduardo Peña Velasco
-      url: https://github.com/jedpe
+      github: jedpe
       roles:
         - Investigation
         - Software
@@ -43,14 +43,14 @@ project:
     - id: rfurner
       name: Rachel Furner
       orcid: 0000-0003-0535-4388
-      url: https://github.com/RachelFurner
+      github: RachelFurner
       roles:
         - Writing – review & editing
       affiliations:
         - bas
     - id: obautista
       name: Oscar Bautista
-      url: https://github.com/oscarbau
+      github: oscarbau
       roles:
         - Writing – review & editing
       affiliations:
@@ -58,7 +58,7 @@ project:
     - id: rbarros
       name: Ricardo Barros Lourenço
       orcid: 0000-0002-4158-3244
-      url: https://github.com/ricardobarroslourenco
+      github: ricardobarroslourenco
       roles:
         - Writing – review & editing
       affiliations:
@@ -67,7 +67,7 @@ project:
     - id: afouilloux
       name: Anne Fouilloux
       orcid: 0000-0002-1784-2920
-      url: https://github.com/annefou
+      github: annefou
       roles:
         - Writing – review & editing
       affiliations:
