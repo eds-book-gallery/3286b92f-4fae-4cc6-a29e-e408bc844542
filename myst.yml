@@ -114,6 +114,7 @@ project:
     code: MIT
   date: 2024-08-29
   toc:
+    - file: README.md
     - file: notebook.ipynb
   exports:
     - format: pdf
