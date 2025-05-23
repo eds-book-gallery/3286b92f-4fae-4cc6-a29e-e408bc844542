@@ -14,16 +14,13 @@ authors:
     affiliation: University of Colorado Boulder
     orcid: 0000-0003-4179-628X
     email: garima.Malhotra@colorado.edu
-    website: https://github.com/garimamalhotra
   - family-names: Veizaga
     given-names: Daniela Pinto
     affiliation: University of California, Berkeley
     orcid: 0009-0005-8588-3774
-    website: https://github.com/dapivei
   - family-names: Velasco
     given-names: Jorge Eduardo Peña
     affiliation: Claremont McKenna College
-    website: https://github.com/jedpe
 date-released: '2024-08-29'
 contact:
   - family-names: Malhotra
@@ -31,10 +28,10 @@ contact:
     affiliation: University of Colorado Boulder
     orcid: 0000-0003-4179-628X
     email: garima.Malhotra@colorado.edu
-    website: https://github.com/garimamalhotra
 identifiers:
-  - type: doi
-    value: 10.5281/zenodo.8296922
+  - description: Open review report for this notebook
+    type: url
+    value: https://github.com/eds-book/notebooks-reviews/issues/10
 keywords:
   - Oceans
   - Modelling
@@ -66,4 +63,4 @@ references:
     journal: Environmental Data Science journal
     year: 2022
 type: software
-version: v2.0.0
+version: v2025.05.0
